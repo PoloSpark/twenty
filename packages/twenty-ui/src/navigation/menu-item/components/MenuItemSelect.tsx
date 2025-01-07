@@ -47,6 +47,7 @@ type MenuItemSelectProps = {
   disabled?: boolean;
   hovered?: boolean;
   hasSubMenu?: boolean;
+  contextualText?: string;
 };
 
 export const MenuItemSelect = ({
@@ -59,6 +60,7 @@ export const MenuItemSelect = ({
   disabled,
   hovered,
   hasSubMenu = false,
+  contextualText,
 }: MenuItemSelectProps) => {
   const theme = useTheme();
 
@@ -70,8 +72,13 @@ export const MenuItemSelect = ({
       disabled={disabled}
       hovered={hovered}
     >
-      <MenuItemLeftContent LeftIcon={LeftIcon} text={text} />
+      <MenuItemLeftContent
+        LeftIcon={LeftIcon}
+        text={text}
+        contextualText={contextualText}
+      />
       {selected && needIconCheck && <IconCheck size={theme.icon.size.md} />}
+
       {hasSubMenu && (
         <IconChevronRight
           size={theme.icon.size.sm}
