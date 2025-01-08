@@ -38,6 +38,7 @@ const meta: Meta<typeof AppRouter> = {
   ],
   parameters: {
     msw: graphqlMocks,
+    whatever: ''
   },
 };
 
